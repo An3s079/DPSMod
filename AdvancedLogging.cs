@@ -11,35 +11,8 @@ namespace DPSMod
 	{
 		public static void LogError(object msg)
 		{
-			string message = msg.ToString();
-			Color color = Color.red;
 
-			SGroup sGroup = new SGroup();
-			sGroup.AutoGrowDirection = SGroup.EDirection.Vertical;
-			sGroup.AutoLayout = (SGroup g) => g.AutoLayoutHorizontal;
-			sGroup.OnUpdateStyle = delegate (SElement elem)
-			{
-				elem.Fill();
-			};
-			sGroup.AutoLayoutVerticalStretch = false;
-			sGroup.AutoLayoutHorizontalStretch = false;
-			sGroup.GrowExtra = Vector2.zero;
-			sGroup.ContentSize = Vector2.zero;
-			sGroup.AutoLayoutPadding = 0;
-			sGroup.Background = Color.clear;
-
-			LogLabel modname = new LogLabel(DPSmod.metadata.Name + ": ");
-			modname.Colors[0] = color;
-			sGroup.Children.Add(modname);
-
-			LogLabel label = new LogLabel(message);
-			label.Colors[0] = color;
-			label.Background = Color.clear;
-			sGroup.Children.Add(label);
-
-			ETGModConsole.Instance.GUI[0].Children.Add(sGroup);
-
-			ETGModConsole.Instance.GUI[0].UpdateStyle();
+			ETGModConsole.Log($"<color=#d6001d>{DPSmod.metadata.Name}: {msg}</color>");
 		}
 
 		public static void LogPlain(object msg, Color32? col = null)

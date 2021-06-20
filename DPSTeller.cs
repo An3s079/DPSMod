@@ -11,7 +11,7 @@ namespace DPSMod
 		void Update()
 		{
 			
-			DPSmod.DPsText.text = "DPS: " + DPSmod.getDPS();
+			DPSmod.DPsText.text = "DPS: " + DPSCalculator.DPS();
 		}
 	}
 }
