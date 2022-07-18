@@ -10,8 +10,13 @@ namespace DPSMod
 	{
 		void Update()
 		{
-			
-			DPSmod.DPsText.text = "DPS: " + DPSCalculator.DPS();
+			bool constantlyUpdated = DPSmod.ConstantlyUpdated;
+			if (constantlyUpdated)
+			{
+				DPSMod.DPSmod.addDamageToDPS(0f);
+			}
+			DPSmod.DPsText.text = "DPS: " + DPSmod.DPS();
+			DPSmod.DPsText.fontSize = DPSmod.FontSize;
 		}
 	}
 }
